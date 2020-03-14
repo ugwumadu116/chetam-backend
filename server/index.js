@@ -25,7 +25,7 @@ app.get("/", (req, res) =>
   })
 );
 
-app.use(`${prefix}/`, userRouter);
+// app.use(`${prefix}/`, userRouter);
 
 app.use(async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-import { validationResult } from 'express-validator/check';
+import { validationResult } from 'express-validator';
 
 const checkRequest = async (data) => {
   const errorFormatter = ({ msg }) => `${msg}`;
