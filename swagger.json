@@ -1,0 +1,132 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Chetam",
+    "description": "A drug prescription reminder web app",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "contact": {
+      "email": "ugwumadu116@gmail.com"
+    }
+  },
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API Endpoints for users in the system"
+    },
+    {
+      "name": "Prescription",
+      "description": "API Endpoints for cars in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": [
+    "application/json",
+    "multipart/form-data",
+    "application/x-www-form-urlencoded"
+  ],
+  "produces": ["application/json"],
+  "paths": {
+    "/api/v1/auth/signup": {
+      "post": {
+        "tags": ["Users"],
+        "description": "Register a New User in the system",
+        "requestBody": {
+          "description": "Input Data Format",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "first_name": {
+                    "type": "string",
+                    "description": "First name of User"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "description": "Last name of User"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "Email of User"
+                  },
+                  "address": {
+                    "type": "string",
+                    "description": "address of User"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Password of User"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "produces": ["application/json"],
+        "responses": {
+          "400": {
+            "description": "User Registration Validation Error"
+          },
+          "409": {
+            "description": "User already registered"
+          },
+          "201": {
+            "description": "New user is Registered"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/signin": {
+      "post": {
+        "tags": ["Users"],
+        "description": "Log In a Registered User",
+        "requestBody": {
+          "description": "Input Data Format",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "Email of Registered User"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Password of Registered User"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "produces": ["application/json"],
+        "responses": {
+          "400": {
+            "description": "User Login Validation Error"
+          },
+          "404": {
+            "description": "User Email or Password is wrong"
+          },
+          "200": {
+            "description": "User Logged In"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "JWT": {
+        "type": "apiKey",
+        "description": "JWT token is received after registering/login, input format: \"token \\<token\\>\"",
+        "name": "authorization",
+        "in": "header"
+      }
+    }
+  }
+}

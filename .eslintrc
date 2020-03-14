@@ -1,0 +1,19 @@
+{
+  "extends": "airbnb-base",
+  "rules": {
+    "linebreak-style": 0,
+    "no-console": "off",
+    "camelcase": "off",
+    "global-require": 0,
+    "eslint linebreak-style": [
+      0,
+      "error",
+      "windows"
+    ]
+  },
+  "env": {
+    "commonjs": true,
+    "node": true,
+    "mocha": true
+  }
+}
