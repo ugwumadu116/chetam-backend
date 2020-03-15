@@ -1,13 +1,17 @@
 language: node_js
 node_js:
- - "10"
+ - "12"
 cache:
   directories:
     - "node_modules"
 global:
-  - CODECLIMATE_REPO_TOKEN=d2743ffa22c21c3a7225a0331886c388e82e98a36f5854d127575b16ff41f4c7
+  - CODECLIMATE_REPO_TOKEN=70a5fa8474a0927e9fd5026fd87b9be8ced203b2d716ea0baee00503e7c643d0
 install:
   - npm install
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database wetravel_test;' -U postgres
 script: "npm test"
 after_success:
   - npm run coverage

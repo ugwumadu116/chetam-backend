@@ -1,24 +1,16 @@
 import db from '../config/db';
 
 class UserService {
-  static async createUser(user, isAdmin) {
+  static async createUser(user) {
     const {
       email,
-      firstName,
-      lastName,
-      hashPassword,
-      address,
+      first_name,
+      last_name,
+      password,
     } = user;
-    if (isAdmin) {
-      const sqlAdmin = 'INSERT INTO users (first_name, last_name, email, password, address, is_admin) VALUES($1, $2, $3, $4, $5, $6) RETURNING *';
-      const bindParametersAdmin = [firstName, lastName, email, hashPassword, address, true];
-      const clientAdmin = await db.connect();
-      const resultAdmin = await clientAdmin.query(sqlAdmin, bindParametersAdmin);
-      clientAdmin.release();
-      return resultAdmin.rows[0];
-    }
-    const sql = 'INSERT INTO users (first_name, last_name, email, password, address) VALUES($1, $2, $3, $4, $5) RETURNING *';
-    const bindParameters = [firstName, lastName, email, hashPassword, address];
+   
+    const sql = 'INSERT INTO users (first_name, last_name, email, password) VALUES($1, $2, $3, $4) RETURNING *';
+    const bindParameters = [first_name, last_name, email, password];
     const client = await db.connect();
     const result = await client.query(sql, bindParameters);
     client.release();

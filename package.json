@@ -1,11 +1,12 @@
 {
-  "name": "auto-mart-andela",
+  "name": "Chetam",
   "version": "1.0.0",
-  "description": "Auto Mart is an online marketplace for automobiles of diverse makes, model or body type. With Auto Mart, users can sell their cars or buy from trusted dealerships or private sellers.",
+  "description": "Your best drug prescription reminder",
   "main": "index.js",
   "scripts": {
     "start": "node ./build/index.js",
     "test": "npm run drop-table-schema && npm run table-schema && nyc mocha -r esm  --timeout 15000 --exit",
+    "test2": "nyc mocha -r esm  --timeout 15000 --exit",
     "table-schema": "babel-node ./server/migrations/index.js create",
     "drop-table-schema": "babel-node ./server/migrations/index.js drop",
     "dev": "nodemon --exec babel-node ./server/index.js",
@@ -20,8 +21,10 @@
   "dependencies": {
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "jsonwebtoken": "^8.5.1",
