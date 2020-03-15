@@ -25,9 +25,7 @@ const create = () => {
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    password TEXT NOT NULL,
-    address VARCHAR(1600),
-    is_admin BOOLEAN DEFAULT FALSE
+    password TEXT NOT NULL
   )`;
 
   const migrationQueries = `${usersTable};`;

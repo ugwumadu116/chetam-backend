@@ -19,9 +19,6 @@ const signUpValidation = [
   body('last_name', 'Last name with minimum of 2 characters long is required')
     .isLength({ min: 2 })
     .trim(),
-  body('address', 'Address with minimum of 2 characters long is required')
-    .isLength({ min: 4 })
-    .trim(),
 ];
 
 const signInValidation = [

@@ -12,21 +12,10 @@ before(async () => {
     .request(app)
     .post(`${API_PREFIX}/auth/signup`)
     .send({
-      first_name: 'admin',
-      last_name: 'admin',
-      email: 'admin@gmail.com',
-      password: 'adminPwd',
-      address: 'ipaja lagos',
-    });
-  await chai
-    .request(app)
-    .post(`${API_PREFIX}/auth/signup`)
-    .send({
       first_name: 'joel',
       last_name: 'ugwumadu',
       email: 'ugw5@gmail.com',
       password: 'password',
-      address: 'ipaja lagos',
     });
 });
 
@@ -52,7 +41,6 @@ describe('User Auth Signup Endpoint Tests', () => {
         last_name: 'ugwumadu',
         email: 'ugw5@gmail.com',
         password: 'password',
-        address: 'ipaja lagos',
       })
       .then((res) => {
         expect(res).to.have.status(400);
@@ -70,7 +58,6 @@ describe('User Auth Signup Endpoint Tests', () => {
         last_name: '',
         email: 'ugw5@gmail.com',
         password: 'password',
-        address: 'ipaja lagos',
       })
       .then((res) => {
         expect(res).to.have.status(400);
@@ -89,7 +76,6 @@ describe('User Auth Signup Endpoint Tests', () => {
         last_name: 'doe',
         email: 'ugw5.com',
         password: 'password',
-        address: 'ipaja lagos',
       })
       .then((res) => {
         expect(res).to.have.status(400);
@@ -107,7 +93,6 @@ describe('User Auth Signup Endpoint Tests', () => {
         last_name: 'ugwumadu',
         email: 'ugw5@gmail.com',
         password: 'password',
-        address: 'ipaja lagos',
       })
       .then((res) => {
         expect(res).to.have.status(409);
@@ -125,7 +110,6 @@ describe('User Auth Signup Endpoint Tests', () => {
         last_name: 'shawn',
         email: 'kim@gmail.com',
         password: 'password',
-        address: 'ipaja lagos',
       })
       .then((res) => {
         expect(res).to.have.status(201);
