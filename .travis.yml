@@ -8,10 +8,6 @@ global:
   - CODECLIMATE_REPO_TOKEN=70a5fa8474a0927e9fd5026fd87b9be8ced203b2d716ea0baee00503e7c643d0
 install:
   - npm install
-services:
-  - postgresql
-before_script:
-  - psql -c 'create database wetravel_test;' -U postgres
 script: "npm test"
 after_success:
   - npm run coverage
